@@ -1,5 +1,7 @@
 # Midnight Cravings 🌙
 
+**[🔴 Live Demo: Try it here!](https://midnight-cravings-odga.onrender.com/)**
+
 Midnight Cravings is a web application that acts as your personal AI kitchen friend. Whether you have a sudden midnight craving or unexpected guests, simply type in the ingredients you have on hand, and it will magically generate a delicious recipe for you!
 
 ## Features
