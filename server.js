@@ -21,13 +21,6 @@ app.post('/api/ai-recipe', async (req, res) => {
             return res.status(400).json({ error: 'Ingredients array is required' });
         }
 
-        const model = genAI.getGenerativeModel({
-            model: "gemini-3.5-flash",
-            generationConfig: {
-                responseMimeType: "application/json",
-            }
-        });
-
         const prompt = `
         You are an expert chef. Create a recipe using some or all of the following ingredients: ${ingredients.join(', ')}.
         You can also include basic pantry staples like salt, pepper, oil, water, butter, etc.
@@ -40,7 +33,21 @@ app.post('/api/ai-recipe', async (req, res) => {
         }
         `;
 
-        const result = await model.generateContent(prompt);
+        let result;
+        try {
+            const model = genAI.getGenerativeModel({
+                model: "gemini-3.5-flash",
+                generationConfig: { responseMimeType: "application/json" }
+            });
+            result = await model.generateContent(prompt);
+        } catch (err) {
+            console.warn("Primary model failed, falling back to gemini-1.5-flash due to high demand...");
+            const fallbackModel = genAI.getGenerativeModel({
+                model: "gemini-1.5-flash",
+                generationConfig: { responseMimeType: "application/json" }
+            });
+            result = await fallbackModel.generateContent(prompt);
+        }
         let responseText = result.response.text();
         
         // Strip out markdown code blocks if the AI includes them
