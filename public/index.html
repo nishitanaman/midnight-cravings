@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recipe Suggestion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Midnight Cravings 🌙</h1>
+            <p>Whether it's a sudden midnight craving or unexpected guests, your trusted kitchen friend is here! Tell me what ingredients you have, or simply name the dish you're craving, and I'll whip up the perfect recipe.</p>
+        </header>
+
+        <section class="input-section">
+            <div class="tag-input-container">
+                <div id="tags-wrapper" class="tags-wrapper">
+                    <!-- Tags will go here -->
+                </div>
+                <input type="text" id="ingredient-input" placeholder="Type an ingredient or dish name and press Enter...">
+            </div>
+            <button id="suggest-btn" class="primary-btn">Suggest Recipe</button>
+        </section>
+
+        <section id="loading-section" class="hidden">
+            <div class="spinner"></div>
+            <p>Chef AI is thinking...</p>
+        </section>
+
+        <section id="result-section" class="hidden">
+            <h2 id="recipe-name"></h2>
+            
+            <div class="recipe-content">
+                <div class="ingredients-card">
+                    <h3>Ingredients</h3>
+                    <ul id="recipe-ingredients"></ul>
+                </div>
+                <div class="steps-card">
+                    <h3>Instructions</h3>
+                    <ol id="recipe-steps"></ol>
+                </div>
+            </div>
+
+            <button id="try-another-btn" class="secondary-btn">Try Another</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
