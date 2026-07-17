@@ -41,9 +41,9 @@ app.post('/api/ai-recipe', async (req, res) => {
             });
             result = await model.generateContent(prompt);
         } catch (err) {
-            console.warn("Primary model failed, falling back to gemini-1.5-flash due to high demand...");
+            console.warn("Primary model failed, falling back to gemini-2.5-flash due to high demand...");
             const fallbackModel = genAI.getGenerativeModel({
-                model: "gemini-1.5-flash",
+                model: "gemini-2.5-flash",
                 generationConfig: { responseMimeType: "application/json" }
             });
             result = await fallbackModel.generateContent(prompt);
