@@ -2,6 +2,8 @@
 
 **[🔴 Live Demo: Try it here!](https://midnight-cravings-odga.onrender.com/)**
 
+https://midnight-cravings-odga.onrender.com
+
 Midnight Cravings is a web application that acts as your personal AI kitchen friend. Whether you have a sudden midnight craving or unexpected guests, simply type in the ingredients you have on hand, and it will magically generate a delicious recipe for you!
 
 ## Features
@@ -10,7 +12,7 @@ Midnight Cravings is a web application that acts as your personal AI kitchen fri
 - **Modern UI:** A beautiful, responsive interface featuring pastel glassmorphism aesthetics.
 
 ## Tech Stack
-- **Frontend:** Pure HTML, CSS (Vanilla), JavaScript
+- **Frontend:** Pure HTML, CSS , JavaScript
 - **Backend:** Node.js, Express
 - **AI Integration:** `@google/generative-ai` SDK
 
