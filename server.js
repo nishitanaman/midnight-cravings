@@ -41,13 +41,17 @@ app.post('/api/ai-recipe', async (req, res) => {
         `;
 
         const result = await model.generateContent(prompt);
-        const responseText = result.response.text();
+        let responseText = result.response.text();
+        
+        // Strip out markdown code blocks if the AI includes them
+        responseText = responseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+        
         const recipe = JSON.parse(responseText);
 
         res.json(recipe);
     } catch (error) {
         console.error("Error generating recipe:", error);
-        res.status(500).json({ error: 'Failed to generate recipe' });
+        res.status(500).json({ error: 'Failed to generate recipe: ' + error.message });
     }
 });
 
